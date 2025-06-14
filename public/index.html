@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <title>자기 소개</title>
+  <style>
+    /* 기본 설정 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* 배경 애니메이션 */
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #f5e8e3, #ffffff);
+      z-index: -1;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(167, 120, 100, 0.2); /* 수정됨 */
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) {
+      left: 10%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 12s;
+    }
+    .bubble:nth-child(2) {
+      left: 25%;
+      width: 60px;
+      height: 60px;
+      animation-duration: 18s;
+    }
+    .bubble:nth-child(3) {
+      left: 45%;
+      width: 20px;
+      height: 20px;
+      animation-duration: 8s;
+    }
+    .bubble:nth-child(4) {
+      left: 65%;
+      width: 50px;
+      height: 50px;
+      animation-duration: 14s;
+    }
+    .bubble:nth-child(5) {
+      left: 85%;
+      width: 30px;
+      height: 30px;
+      animation-duration: 10s;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-1200px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* 카드 스타일 */
+    .container {
+      position: relative;
+      max-width: 600px;
+      margin: 80px auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      z-index: 1;
+      text-align: left;
+    }
+
+    .container > p {
+      line-height: 1.6;
+    }
+
+    .image {
+      text-align: center;
+    }
+    .profile-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      color: #A77864; /* 수정됨 */
+    }
+
+    .skills span {
+      display: inline-block;
+      background-color: #f2e6e1; /* 수정됨 */
+      color: #A77864; /* 수정됨 */
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin: 4px;
+      font-size: 0.9rem;
+    }
+    .api-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #A77864;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .api-button:hover {
+      background-color: #8d5f52;
+    }
+
+    .api-button2 {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #D0B8A8;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .api-button2:hover {
+      background-color: #8d5f52;
+    }
+
+    .links a {
+      text-decoration: none;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <div class="container">
+
+    <div class="image">
+      <img src="./image/1.png" alt="Profile" class="profile-img" />
+      <h1>안녕하세요! 👋</h1>
+    </div>
+    <br />
+    <p><strong>이름:</strong> 유아현</p>
+    <p><strong>직업:</strong> 백엔드 개발자</p>
+    <p><strong>소개:</strong><br>
+      통신 개발 경험이 풍부한 3년차 백엔드 개발자입니다.<br>
+      API 개발, 데이터베이스 관리, 소켓 통신을 중심으로 다양한 프로젝트를 주도해왔으며, 새로운 언어와 기술을 빠르게 습득하고 활용하는 데 큰 열정을 가지고 있습니다.<br />
+      Express와 NestJS 기반의 백엔드 서버 개발에 익숙하며, Docker와 AWS를 활용한 인프라 구성 경험으로 서비스의 개발부터 배포, 운영까지 전반적인 백엔드 영역을 폭넓게 다룰 수 있습니다.
+    </p>
+    <br />
+    <p><strong>더 자세히 보기:</strong></p>
+    <div class="links">
+      <a href="mailto:cats0713@gmail.com" class="api-button2">email</a>
+      <a href="https://github.com/cats0713" target="_blank" class="api-button2">GitHub</a>
+      <a href="https://roomy-spectrum-6dd.notion.site/3039cafdea964fa38359c15972a5e17e?pvs=4" target="_blank" class="api-button2">자기소개서</a>
+    </div>
+    <br />
+    <p><strong>기술 스택:</strong></p>
+    <div class="skills">
+      <span>NestJS</span>
+      <span>Express</span>
+      <span>Docker</span>
+      <span>AWS EC2</span>
+      <span>Nginx</span>
+      <span>Swagger</span>
+      <span>TypeScript</span>
+      <span>MongoDB</span>
+      <span>MySQL</span>
+      <span>VUE</span>
+      <span>Electron</span>
+    </div>
+    <div style="margin-top: 1.5rem;">
+      <a href="/api" class="api-button">Swagger 바로가기</a>
+    </div>
+  </div>
+</body>
+</html>
