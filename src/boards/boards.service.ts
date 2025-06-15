@@ -51,8 +51,8 @@ export class BoardsService {
     return result;
   }
 
-  async deleteBoards(updateBoardDto: UpdateBoardDto): Promise<BoardDocument> {
-    const deleted = await this.boardModel.findByIdAndDelete(updateBoardDto._id);
+  async deleteBoards(id: string): Promise<BoardDocument> {
+    const deleted = await this.boardModel.findByIdAndDelete(id);
     if (!deleted) {
       throw new BadRequestException('게시물 삭제 실패');
     }
@@ -63,7 +63,9 @@ export class BoardsService {
     const update = await this.boardModel.findByIdAndUpdate(
       updateBoardDto._id,
       updateBoardDto,
+      { new: true },
     );
+    console.log(update);
     if (!update) {
       throw new BadRequestException('게시물 업데이트 실패');
     }

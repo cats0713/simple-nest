@@ -1,5 +1,5 @@
 import { Body, Param, Controller, Get, Post } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags, ApiBody } from '@nestjs/swagger';
 import { BoardsService } from './boards.service';
 import { BoardDocument } from 'src/schemas/board.schema';
 
@@ -36,11 +36,20 @@ export class BoardsController {
   }
 
   @Post('/delete')
-  @ApiOperation({ summary: '게시물 진짜 삭제' })
+  @ApiOperation({ summary: '게시물 진짜 삭제 id 첨부' })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        id: { type: 'string', example: '664f88a2a7f1cf1ab12f3a99' },
+      },
+      required: ['id'],
+    },
+  })
   async deleteBoard(
-    @Body() updateBoardDto: UpdateBoardDto,
+    @Body('id') id: string,
   ): Promise<BoardDocument> {
-    return this.boardsService.deleteBoards(updateBoardDto);
+    return this.boardsService.deleteBoards(id);
   }
 
   @Post('/update')
