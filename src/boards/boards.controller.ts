@@ -1,4 +1,4 @@
-import { Body, Param, Controller, Get, Post } from '@nestjs/common';
+import { Body, Param, Controller, Get, Post, Delete, Put } from '@nestjs/common';
 import { ApiOperation, ApiTags, ApiBody } from '@nestjs/swagger';
 import { BoardsService } from './boards.service';
 import { BoardDocument } from 'src/schemas/board.schema';
@@ -35,7 +35,7 @@ export class BoardsController {
     return this.boardsService.createBoards(createBoardDto);
   }
 
-  @Post('/delete')
+  @Delete('/delete')
   @ApiOperation({ summary: '게시물 진짜 삭제 id 첨부' })
   @ApiBody({
     schema: {
@@ -52,7 +52,7 @@ export class BoardsController {
     return this.boardsService.deleteBoards(id);
   }
 
-  @Post('/update')
+  @Put('/update')
   @ApiOperation({ summary: '게시물 업데이트' })
   async updateBoard(
     @Body() updateBoardDto: UpdateBoardDto,
