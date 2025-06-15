@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
@@ -46,7 +46,7 @@ export class BoardsService {
     };
     const result = await this.boardModel.create(boardWithId);
     if (!result) {
-      throw new NotFoundException('새로운 게시물 생성 실패');
+      throw new BadRequestException('새로운 게시물 생성 실패');
     }
     return result;
   }
@@ -54,7 +54,7 @@ export class BoardsService {
   async deleteBoards(updateBoardDto: UpdateBoardDto): Promise<BoardDocument> {
     const deleted = await this.boardModel.findByIdAndDelete(updateBoardDto._id);
     if (!deleted) {
-      throw new NotFoundException('게시물 삭제 실패');
+      throw new BadRequestException('게시물 삭제 실패');
     }
     return deleted;
   }
@@ -65,7 +65,7 @@ export class BoardsService {
       updateBoardDto,
     );
     if (!update) {
-      throw new NotFoundException('게시물 업데이트 실패');
+      throw new BadRequestException('게시물 업데이트 실패');
     }
     return update;
   }

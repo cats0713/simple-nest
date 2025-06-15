@@ -1,14 +1,16 @@
 import { Body, Param, Controller, Get, Post } from '@nestjs/common';
-import { BoardsService } from './boards.service';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CreateBoardDto } from './dto/create.dto';
+import { BoardsService } from './boards.service';
 import { BoardDocument } from 'src/schemas/board.schema';
+
+import { CreateBoardDto } from './dto/create.dto';
 import { UpdateBoardDto } from './dto/update.dto';
 
 @ApiTags('Boards')
 @Controller('boards')
 export class BoardsController {
   constructor(private boardsService: BoardsService) {} // 파라미터 -> 프로퍼티
+
   @Get()
   @ApiOperation({ summary: '모든게시글 가져오기' })
   async getAllBoard(): Promise<BoardDocument[]> {
